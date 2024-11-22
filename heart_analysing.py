@@ -16,7 +16,7 @@ sorted_data = sorted_data[['age', 'chol']]
 print(sorted_data.describe())
 
 '''heart_data = heart_data.groupby("age")
-type(df_group)
+type(heart_data)
 
 # Output
 pandas.core.groupby.generic.DataFrameGroupBy'''
