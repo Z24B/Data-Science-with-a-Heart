@@ -15,7 +15,7 @@ sorted_data = heart_data.sort_index(ascending=True)
 sorted_data = sorted_data[['age', 'chol']]
 print(sorted_data.describe())
 
-'''df_group = heart_data.groupby("age")
+'''heart_data = heart_data.groupby("age")
 type(df_group)
 
 # Output
