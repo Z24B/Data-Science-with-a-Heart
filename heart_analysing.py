@@ -63,8 +63,8 @@ def risk_factors_dist_sex(data):
     plt.subplot(2, 3, 1)
     trestbps_female = data[data['Sex']==0]['Resting_bp']
     trestbps_male = data[data['Sex']==1]['Resting_bp']
-    sns.distplot(trestbps_female, color='Red')   
-    sns.distplot(trestbps_male, color='Blue')
+    sns.distplot(trestbps_female, color='Orange') 
+    sns.distplot(trestbps_male, color='Blue')  
     plt.title('Resting Blood Pressure (mmHg) Distribution for Each Sex')
     plt.gca().legend(title='Sex', labels=['Female','Male'])
     plt.axvline(x=130, color='r', linestyle='--', label='Hypertension: over 130 mmHg')
@@ -78,7 +78,7 @@ def risk_factors_dist_sex(data):
     plt.subplot(2, 3, 2)
     chol_female = data[data['Sex']==0]['Cholesterol']
     chol_male = data[data['Sex']==1]['Cholesterol']
-    sns.distplot(chol_female, color='Red')   
+    sns.distplot(chol_female, color='Orange')   
     sns.distplot(chol_male, color='Blue')
     plt.title('Serum Cholesterol (mg/dl) Distribution for Each Sex')
     plt.gca().legend(title='Sex', labels=['Female','Male'])
@@ -93,7 +93,7 @@ def risk_factors_dist_sex(data):
     plt.subplot(2, 3, 3)
     thalach_female = data[data['Sex']==0]['Max_heart_rate']
     thalach_male = data[data['Sex']==1]['Max_heart_rate']
-    sns.distplot(thalach_female, color='Red')   
+    sns.distplot(thalach_female, color='Orange')   
     sns.distplot(thalach_male, color='Blue')
     plt.title('Max Heart Rate (bpm) Distribution for Each Sex')
     plt.gca().legend(title='Sex', labels=['Female','Male'])
