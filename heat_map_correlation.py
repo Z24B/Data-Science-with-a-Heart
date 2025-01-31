@@ -10,5 +10,3 @@ def heat_map_correlation():
     #print(data.corr(numeric_only=True))
     dataplot = sb.heatmap(df.corr(numeric_only=True), cmap="YlGnBu", annot=True)
     mp.show()
-
-print(heat_map_correlation())
