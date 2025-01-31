@@ -21,7 +21,7 @@ plot_visual(df)
 risk_factors(df)
 
 #Correlation matrix
-plot_correlation(df)
+heat_map_correlation(df)
 
 #Using group by to explore data
 group_by(df)
