@@ -2,8 +2,7 @@ import pandas as pd
 from sklearn.impute import SimpleImputer
 
 '''
-This file contains code for data preparation(loading data, cleaning up data,
-check/handle null values, and other relevant information.
+Data preparation(loading data, cleaning up data, check/handle null values, and other relevant information.
 '''
 
 def load_and_clean(file_path):
@@ -27,7 +26,7 @@ def load_and_clean(file_path):
         'slope' : 'SlopePeakExercise',
         'ca' : 'NumMajorVessels',
         'thal' : 'ThalDisorder',
-        'target' : 'Target'
+        'target' : 'Condition'
         }, inplace=True)
 
     #Check columns for null valuess
