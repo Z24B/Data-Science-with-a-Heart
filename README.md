@@ -3,10 +3,10 @@
 ## Lovelace - Machine Learning Group Project
 
 **TEAM**
-Adam Squires
-Arshia Azizian
-Eric Harrington Ballester
-Zivha Beharie
+- Adam Squires
+- Arshia Azizian
+- Eric Harrington Ballester
+- Zivha Beharie
 
 Prediction of heart disease by using exploratory analysis to develop a machine learning model.
 
