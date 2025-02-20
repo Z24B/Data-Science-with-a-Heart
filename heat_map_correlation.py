@@ -1,3 +1,5 @@
+#code moved to python notebook
+
 # Import modules
 import matplotlib.pyplot as mp
 import pandas as pd
