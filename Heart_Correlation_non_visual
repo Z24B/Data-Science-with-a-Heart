@@ -1,0 +1,121 @@
+import numpy as np 
+import pandas as pd 
+import os
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set(style='darkgrid')
+import plotly.graph_objs as go
+import plotly.offline as py
+
+#get the file
+heart = pd.read_csv("heart.csv")
+
+# Rename origical columns
+heart.columns = ['Age', 'Sex', 'Chest_pain_type', 'Resting_bp', 
+              'Cholesterol', 'Fasting_bs', 'Resting_ecg', 
+              'Max_heart_rate', 'Exercise_induced_angina', 
+              'ST_depression', 'ST_slope', 'Num_major_vessels',
+              'Thallium_test', 'Condition']
+
+#Limit the rows and columns
+pd.set_option('display.max_rows', 500)
+pd.set_option('display.max_columns', 50)
+
+variable1 = 'Condition'
+variable2 = ''
+names = []
+correlations = {}
+
+def condition_to_rest():
+    print('THE CORRELATION IS: ')
+    global variable2
+    global variable1
+    for i in heart.columns:
+        variable2 = i
+        corr_matrix = heart.corr()[variable1][variable2]
+        print(f"{variable1} and {variable2}", corr_matrix)
+    return ""
+
+
+def all_with_all():
+    #Clear Screen, Select how many correlations to display
+    os.system('cls')
+    ranges = int(input("How many do you want: "))
+    os.system('cls')
+    print(f'THE CORRELATION OF THE {ranges} LARGEST: ')
+    print('-----------------------------------------')
+    print("")
+
+    #getting the correlations of every column with every other column
+    for i in heart.columns:
+        variable1 = i
+        for j in heart.columns:
+            variable2 = j
+            if i == j:
+                pass
+            else:
+                corr_matrix = heart.corr()[variable1][variable2]
+                #names.append(f"{variable1} and {variable2}")
+                correlations[f"{variable1} and {variable2}"] = float(corr_matrix)
+                #print(f"Between {variable1} and {variable2}:", corr_matrix)
+
+    values = []
+    max_value_clean = []
+    #getting the values from the dictionaries
+    for i in correlations:
+        values.append(correlations[i])
+    #Sorting the values, to get the highest numbers
+    #If you change the true to false, it will be form small to big
+    max_value = sorted(values, reverse=True)
+
+    #Getting rid of the duplicates
+    for i in max_value:
+        if i in max_value_clean:
+            pass
+        else:
+            max_value_clean.append(i)
+
+    #display the first 15 clean values
+    """print(max_value_clean[:15])"""
+
+    #from the 15 values, get the keys from the dictionary
+    #to link it with the value afterwards
+    max_value_key = []
+    for i in max_value[:ranges*2]:
+        for key, value in correlations.items():
+            if value == i:
+                if key in max_value_key:
+                    pass
+                else:
+                    max_value_key.append(key)
+                    '''print (key, end=" ")
+                    print(value)'''
+    max_value_key_clean = []
+    for i in range(len(max_value_key)):
+        if i % 2 == 0:
+            max_value_key_clean.append(max_value_key[i])
+        else:
+            pass
+
+    #Output the first 15 highest correlations without duplicates
+    count = 0
+    for i in max_value_key_clean:
+        print(f"{i}: {max_value_clean[count]}")
+        print("")
+        count += 1
+    return ""
+
+while True:
+    #Creating a simple menu 
+    print("Choose an Option")
+    print("----------------")
+    print("1. Condition")
+    print("2. All with all")
+    selection = input("-->: ")
+    if selection == "1":
+        print(condition_to_rest())
+    elif selection == "2":
+        print(all_with_all())
+    else:
+        break
