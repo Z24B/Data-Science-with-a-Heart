@@ -100,11 +100,11 @@ class HeartPredictorApp:
 
         #Establishing the actual buttons
         tk.Button(button_frame, text="Predict", command=self.predict, 
-                  bg="#4CAF50", fg="white", font=("Arial", 12), width=20, height=5).grid(row=0, column=0, padx=10)
+                  bg="#4CAF50", fg="white", font=("Arial", 12), width=20, height=3).grid(row=0, column=0, padx=10)
         tk.Button(button_frame, text="Clear", command=self.clear_fields, 
-                  bg="#f44336", fg="white", font=("Arial", 12), width=20, height=5).grid(row=0, column=1, padx=10)
+                  bg="#f44336", fg="white", font=("Arial", 12), width=20, height=3).grid(row=0, column=1, padx=10)
         tk.Button(button_frame, text="Exit", command=self.root.quit, 
-                  bg="#555", fg="white", font=("Arial", 12), width=20, height=5).grid(row=0, column=2, padx=10)
+                  bg="#555", fg="white", font=("Arial", 12), width=20, height=3).grid(row=0, column=2, padx=10)
 
         # Result Text Area
         self.result_text = tk.Text(self.main_frame, height=6, width=50, font=("Arial", 12), state="disabled")
